@@ -17,6 +17,7 @@ Made with **streamlit** by [riztekur](https://github.com/riztekur)
 "## Diamond Features"
 cut_list = ['Fair','Good','Very Good','Ideal','Premium']
 clarity_list = ['I1','SI2','SI1','VS1','VS2','VVS2','VVS1','IF']
+
 col1, col2, col3 = st.beta_columns(3)
 with col1:
     carat = st.slider('Carat (x)', min_value=0.01, max_value=6.00, step=0.01, value=1.00)
@@ -37,4 +38,4 @@ feature = np.asfarray([carat, cut_ord[cut], clarity_ord[clarity]]).reshape(1,-1)
 result = model.predict(feature)
 
 "## Predicted Price"
-st.write("$\${price:.0f}$".format(price=result[0]))
+st.write("$\${price:.2f}$".format(price=result[0]))
